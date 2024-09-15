@@ -1,0 +1,29 @@
+﻿@model BlogPostProject.Models.BlogPost
+@{
+    ViewData["Title"] = "Create Post";
+}
+
+
+<div class="container mt-5">
+    <h2 class="mb-4">Create Post</h2>
+    <form asp-action="SubmitPost" asp-controller="BlogPost" method="post">
+        <!-- Title -->
+        <div class="mb-3">
+            <label for="title" class="form-label">Title</label>
+            <input type="text" class="form-control" id="title" name="title" asp-for="Title" required>
+        </div>
+
+        <!-- Content -->
+        <div class="mb-3">
+            <label for="content" class="form-label">Content</label>
+            <textarea class="form-control" id="content" rows="3" asp-for="Content"></textarea>
+        </div>
+
+        
+
+        <!-- Submit Button -->
+        <button type="submit" class="btn btn-primary">Create Post</button>
+    </form>
+</div>
+
+

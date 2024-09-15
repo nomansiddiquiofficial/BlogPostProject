@@ -1,0 +1,35 @@
+﻿@model IEnumerable<BlogPostProject.Models.BlogPost>
+@{
+    @if(Context.Session.GetString("UserName") != null)
+    {
+        <a asp-controller="BlogPost" asp-action="CreatePost" class="btn btn-primary">Add Post</a>
+    }
+    else
+    {
+        <a asp-controller="User" asp-action="SignUp" class="btn btn-primary">Add Post</a>
+    }
+}
+
+<br>
+<br>
+
+@foreach (var post in Model)
+{
+<div class="card">
+   
+    <div class="card-header">
+            @post.AuthorName
+    </div>
+    <div class="card-body">
+        <h5 class="card-title">@post.Title</h5>
+        <p class="card-text">@post.Content</p>
+        <a href="#" class="btn btn-primary">Go somewhere</a>
+        <br>
+        <br>
+        <p class="card-text"><small class="text-muted">Published @post.CreatedAt</small></p>
+    </div>
+    
+</div>
+    <br>
+    
+}
